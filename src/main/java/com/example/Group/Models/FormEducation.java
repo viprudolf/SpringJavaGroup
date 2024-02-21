@@ -14,12 +14,21 @@ import java.util.Date;
 @Table
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
-public abstract class FormEducation implements Persistable<String> {
+public class FormEducation implements Persistable<String> {
     @Id
-    private Long id;
-    private Date createdAt = new Date();
+    private int id;
 
+    private Date createdAt = new Date();
     private  String _nameForm;
+
+    public String GetNameForm() {
+        return _nameForm;
+    }
+
+    @Override
+    public String getId() {
+        return String.valueOf(id);
+    }
 
     @Override
     public boolean isNew() {

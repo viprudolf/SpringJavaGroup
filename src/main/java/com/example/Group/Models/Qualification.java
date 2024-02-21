@@ -14,13 +14,20 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 public class Qualification implements Persistable<String> {
-
     @Id
-    private Long id;
-    private Date createdAt = new Date();
+    private int id;
 
+    private Date createdAt = new Date();
     private String _nameQualification;
 
+    public String GetNameQualification() {
+        return _nameQualification;
+    }
+
+    @Override
+    public String getId() {
+        return String.valueOf(id);
+    }
 
     @Override
     public boolean isNew() {

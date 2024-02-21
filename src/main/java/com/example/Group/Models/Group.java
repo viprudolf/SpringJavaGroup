@@ -10,17 +10,15 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
 
-
-
 @Data
 @Table
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 public class Group implements Persistable<String> {
     @Id
-    private Long id;
-    private Date createdAt = new Date();
+    private int id;
 
+    private Date createdAt = new Date();
     private String _idSpeciality;
     private String _idQualification;
     private String _idFormEducation;
@@ -29,6 +27,36 @@ public class Group implements Persistable<String> {
     private String _idCourse;
     private String _idCountStudent;
     private String _idCountSubgroup;
+
+    @Override
+    public String getId() {
+        return String.valueOf(id);
+    }
+
+    public String GetIdSpeciality() {
+        return _idSpeciality;
+    }
+    public String GetIdQualification() {
+        return _idQualification;
+    }
+    public String GetIdFormEducation() {
+        return _idFormEducation;
+    }
+    public String GetIdFaculty() {
+        return _idFaculty;
+    }
+    public String GetIdName() {
+        return _idName;
+    }
+    public String GetIdCourse() {
+        return _idCourse;
+    }
+    public String GetIdCountStudent() {
+        return _idCountStudent;
+    }
+    public String GetIdCountSubgroup() {
+        return _idCountSubgroup;
+    }
 
     @Override
     public boolean isNew() {

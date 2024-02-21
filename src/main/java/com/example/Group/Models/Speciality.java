@@ -15,11 +15,24 @@ import java.util.Date;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 public class Speciality implements Persistable<String> {
     @Id
-    private Long id;
-    private Date createdAt = new Date();
+    private int id;
 
+    private Date createdAt = new Date();
     private String _nameSpeciality;
     private String _profile;
+
+    public String GetNameSpeciality() {
+        return _nameSpeciality;
+    }
+
+    public String GetProfile() {
+        return _profile;
+    }
+
+    @Override
+    public String getId() {
+        return String.valueOf(id);
+    }
 
     @Override
     public boolean isNew() {
