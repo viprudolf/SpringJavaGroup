@@ -14,7 +14,7 @@ import java.util.Date;
 @Table
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
-public class FormEducation implements Persistable<String> {
+public abstract class FormEducation implements Persistable<String> {
     @Id
     private Long id;
     private Date createdAt = new Date();
