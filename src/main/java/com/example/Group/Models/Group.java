@@ -28,11 +28,14 @@ public class Group implements Persistable<String> {
     private String _idCountStudent;
     private String _idCountSubgroup;
 
+    public Group(int a) {
+
+    }
+
     @Override
     public String getId() {
         return String.valueOf(id);
     }
-
     public String GetIdSpeciality() {
         return _idSpeciality;
     }

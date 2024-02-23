@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>online-store</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<form method="POST" th:object="${tacoOrder}">
+    <h1>Закажите свои любимые тако!</h1>
+    <div class="grid">
+        <h3>Созданный вами рецепт таго:</h3>
+        <a th:href="@{/design}" id="another">Составьте рецепт еще одного тако</a><br/>
+        <h3>Доставьте мои заказы тако в...</h3>
+        <label for="_idSpeciality">Фамилия, имя: </label>
+        <input type="text" th:field="*{_idSpeciality}"/>
+        <br/>
+        <label for="_idQualification">Улица, дом, квартира: </label>
+        <input type="text" th:field="*{_idQualification}"/>
+        <br/>
+        <label for="_idFormEducation">Город: </label>
+        <input type="text" th:field="*{_idFormEducation}"/>
+        <br/>
+        <label for="_idFaculty">Область: </label>
+        <input type="text" th:field="*{_idFaculty}"/>
+        <br/>
+        <label for="_idName">Почтовый индекс: </label>
+        <input type="text" th:field="*{_idName}"/>
+        <br/>
+        <h3>Способ оплаты...</h3>
+        <label for="_idCourse">Номер кредитной карты: </label>
+        <input type="text" th:field="*{_idCourse}"/>
+        <br/>
+        <label for="_idCountStudent">Срок действия карты: </label>
+        <input type="text" th:field="*{_idCountStudent}"/>
+        <br/>
+        <label for="_idCountStudent">CVV: </label>
+        <input type="text" th:field="*{_idCountStudent}"/>
+        <br/>
+        <input type="submit" value="Заказать"/>
+    </div>
+</form>
+</body>
+</html>

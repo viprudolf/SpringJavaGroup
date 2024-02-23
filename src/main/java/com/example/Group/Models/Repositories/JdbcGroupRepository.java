@@ -23,7 +23,7 @@ public class JdbcGroupRepository implements GroupRepository {
     @Override
     public Iterable<Group> findAll() {
         return jdbcTemplate.query(
-                "SELECT * FROM \"Group\"",
+                "SELECT * FROM \"GGroup\"",
                 this::mapRowToGroup);
     }
 
@@ -31,7 +31,7 @@ public class JdbcGroupRepository implements GroupRepository {
     public Optional<Group> findById(Integer id) {
 
         List<Group> results = jdbcTemplate.query(
-                "SELECT * FROM \"Group\" WHERE id = 1\n",
+                "SELECT * FROM \"GGroup\" WHERE id = 1\n",
                 this::mapRowToGroup, id);
 
         return results.isEmpty() ?
@@ -42,7 +42,7 @@ public class JdbcGroupRepository implements GroupRepository {
     @Override
     public Group save(Group group) {
         jdbcTemplate.update(
-                "INSERT INTO \"Group\" (\"_idSpeciality\", \"_idQualification\", \"_idFormEducation\", \"_idFaculty\", \"_idName\", \"_idCourse\", \"_idCountStudent\", \"_idCountSubgroup\")" +
+                "INSERT INTO \"GGroup\" (\"id_Speciality\", \"id_Qualification\", \"id_FormEducation\", \"id_Faculty\", \"id_Name\", \"id_Course\", \"id_CountStudent\", \"id_CountSubgroup\")" +
                         " VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 group.GetIdSpeciality(),
                 group.GetIdQualification(),
@@ -59,15 +59,15 @@ public class JdbcGroupRepository implements GroupRepository {
     private Group mapRowToGroup(ResultSet row, int rowNum) throws SQLException {
         return new Group(
                 row.getInt("id"),
-                row.getDate("createdAt"),
-                row.getString("_idSpeciality"),
-                row.getString("_idQualification"),
-                row.getString("_idFormEducation"),
-                row.getString("_idFaculty"),
-                row.getString("_idName"),
-                row.getString("_idCourse"),
-                row.getString("_idCountStudent"),
-                row.getString("_idCountSubgroup"));
+                row.getDate("created_At"),
+                row.getString("id_Speciality"),
+                row.getString("id_Qualification"),
+                row.getString("id_FormEducation"),
+                row.getString("id_Faculty"),
+                row.getString("id_Name"),
+                row.getString("id_Course"),
+                row.getString("id_CountStudent"),
+                row.getString("id_CountSubgroup"));
     }
 }
 

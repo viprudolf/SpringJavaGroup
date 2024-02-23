@@ -44,7 +44,7 @@ public class JdbcQualificationRepository implements QualificationRepository {
     @Override
     public Qualification save(Qualification group) {
         jdbcTemplate.update(
-                "INSERT INTO \"Qualification\" (\"_nameQualification\") VALUES (?)",
+                "INSERT INTO \"Qualification\" (\"name_Qualification\") VALUES (?)",
                 group.GetNameQualification()
         );
         return group;
@@ -54,7 +54,7 @@ public class JdbcQualificationRepository implements QualificationRepository {
         return new Qualification(
                 row.getInt("id"),
                 row.getDate("createdAt"),
-                row.getString("_nameQualification"));
+                row.getString("name_Qualification"));
     }
 }
 

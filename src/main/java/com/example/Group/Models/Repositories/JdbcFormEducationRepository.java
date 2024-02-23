@@ -23,7 +23,7 @@ public class JdbcFormEducationRepository implements FormEducationRepository {
     @Override
     public Iterable<FormEducation> findAll() {
         return jdbcTemplate.query(
-                "SELECT * FROM \"FormEducation\"",
+                "SELECT * FROM \"Form_education\"",
                 this::mapRowToFormEducation);
     }
 
@@ -31,7 +31,7 @@ public class JdbcFormEducationRepository implements FormEducationRepository {
     public Optional<FormEducation> findById(Integer id) {
 
         List<FormEducation> results = jdbcTemplate.query(
-                "SELECT * FROM \"FormEducation\" WHERE id = 1\n",
+                "SELECT * FROM \"Form_education\" WHERE id = 1\n",
                 this::mapRowToFormEducation, id);
 
         return results.isEmpty() ?
@@ -42,7 +42,7 @@ public class JdbcFormEducationRepository implements FormEducationRepository {
     @Override
     public FormEducation save(FormEducation group) {
         jdbcTemplate.update(
-                "INSERT INTO \"FormEducation\" (\"_nameForm\") VALUES (?)",
+                "INSERT INTO \"Form_education\" (\"name_Form\") VALUES (?)",
                 group.GetNameForm()
         );
         return group;
@@ -51,7 +51,7 @@ public class JdbcFormEducationRepository implements FormEducationRepository {
     private FormEducation mapRowToFormEducation(ResultSet row, int rowNum) throws SQLException {
         return new FormEducation(
                 row.getInt("id"),
-                row.getDate("createdAt"),
-                row.getString("_nameForm"));
+                row.getDate("created_At"),
+                row.getString("name_Form"));
     }
 }

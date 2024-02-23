@@ -43,7 +43,7 @@ public class JdbcSpecialityRepository implements SpecialityRepository {
     @Override
     public Speciality save(Speciality speciality) {
         jdbcTemplate.update(
-                "INSERT INTO \"Speciality\" (\"_nameSpeciality\", \"_profile\") VALUES (?, ?)",
+                "INSERT INTO \"Speciality\" (\"name_Speciality\", \"profile\") VALUES (?, ?)",
                 speciality.GetNameSpeciality(),
                 speciality.GetProfile()
         );
@@ -54,7 +54,7 @@ public class JdbcSpecialityRepository implements SpecialityRepository {
         return new Speciality(
                 row.getInt("id"),
                 row.getDate("createdAt"),
-                row.getString("_nameSpeciality"),
-                row.getString("_profile"));
+                row.getString("name_Speciality"),
+                row.getString("profile"));
     }
 }

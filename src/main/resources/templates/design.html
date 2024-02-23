@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffcc00;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .content-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .images {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            z-index: 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-top: -20px;
+        }
+
+        .operation-links {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        div.table-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #fff;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #555;
+        }
+
+        tr:hover {
+            background-color: #777;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Залупня</title>
+</head>
+<body>
+<h1>Tables Example</h1>
+<form method="POST" th:object="${group}">
+<div class="table-container">
+    <h2>Form_education</h2>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>created_At</th>
+            <th>name_Form</th>
+            <th>Select</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2022-01-01</td>
+            <td>Form 1</td>
+            <td><input type="checkbox" name="form_1"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2022-02-02</td>
+            <td>Form 2</td>
+            <td><input type="checkbox" name="form_2"></td>
+        </tr>
+    </table>
+
+    <h2>Qualification</h2>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>created_At</th>
+            <th>name_Qualification</th>
+            <th>Select</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2022-01-01</td>
+            <td>Qualification 1</td>
+            <td><input type="checkbox" name="qualification_1"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2022-02-02</td>
+            <td>Qualification 2</td>
+            <td><input type="checkbox" name="qualification_2"></td>
+        </tr>
+    </table>
+
+    <h2>Speciality</h2>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>created_At</th>
+            <th>name_Speciality</th>
+            <th>profile</th>
+            <th>Select</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2022-01-01</td>
+            <td>Speciality 1</td>
+            <td>Profile 1</td>
+            <td><input type="checkbox" name="speciality_1"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2022-02-02</td>
+            <td>Speciality 2</td>
+            <td>Profile 2</td>
+            <td><input type="checkbox" name="speciality_2"></td>
+        </tr>
+    </table>
+
+    <h2>GGroup</h2>
+    ```html
+    <table>
+        <tr>
+            <th>id</th>
+            <th>created_At</th>
+            <th>id_Speciality</th>
+            <th>id_Qualification</th>
+            <th>id_FormEducation</th>
+            <th>id_Faculty</th>
+            <th>id_Name</th>
+            <th>id_Course</th>
+            <th>id_CountStudent</th>
+            <th>id_CountSubgroup</th>
+            <th>Select</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2022-01-01</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>Group 1</td>
+            <td>1</td>
+            <td>50</td>
+            <td>5</td>
+            <td><input type="checkbox" name="group_1"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2022-02-02</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>Group 2</td>
+            <td>2</td>
+            <td>40</td>
+            <td>4</td>
+            <td><input type="checkbox" name="group_2"></td>
+        </tr>
+    </table>
+    <button>Добавить группу</button>
+</div>
+</body>
+</html>
