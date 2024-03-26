@@ -1,0 +1,37 @@
+.snav{background: #344E41;}
+.whitetext{color: white;}
+.item:hover{background: #3a5a40;}
+.item{background: #588157;}
+.hrefitem:hover{color: white;}
+.hrefitem{color: white;}
+.bodys {
+    margin: 0;
+    background: #2f3130;
+    color: #fff;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+.html{background: #6c6c6c;}
+.btnlog{
+    background: #588157;
+    border: transparent 3px solid;
+    border-radius: 10px;
+    font-size: 17px
+}
+.btnlog:hover{
+    background: #3a5a40;
+    border: #588157 3px inset;
+    font-size: 17px
+}
+.createac{
+    color: white;
+}
+.createac:hover{
+    color: #1d3246;
+}
+.reg-auth{
+    background: #344E41;
+    border: 45px solid #344E41;
+    border-radius: 30px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html style=" height: 100%;">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кафедры</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container-fluid"\>
+  <nav class="navbar navbar-light snav">
+    <div class="container-fluid snav">
+      <a class="navbar-brand" href="/">
+        <img th:src="@{/img/faculty.png}" alt="" width="80" height="80"/>
+      </a>
+      <h2 class="whitetext">Факультеты и кафедры</h2>
+      <form th:action="@{/logout}" method="post">
+        <button class="btn btn-primary btnlog" th:text="${authname}" type="submit"></button>
+      </form>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row justify-content-start ">
+      <div class="col-8 border bg-light px-4">
+        <h3 class="text-dark">Кафедры</h3>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Факультет</th>
+            <th scope="col">Название</th>
+            <th scope="col">Аббревиатура</th>
+            <th scope="col">Зав.Кафедры</th>
+            <th scope="col">Номер</th>
+            <th scope="col">Редактировать</th>
+            <th scope="col">Удалить</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="var : ${list}">
+            <td th:text="${var.getId()}"></td>
+            <td th:text="${var.getFaculties().getAbbr()}"></td>
+            <td th:text="${var.getName()}"></td>
+            <td th:text="${var.getAbbr()}"></td>
+            <td th:text="${var.getChief()}"></td>
+            <td th:text="${var.getPhone()}"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4 border px-4">
+        <form method="POST" th:action="@{/chair/refactor_second}" th:object="${chair}">
+          <h3 style="color: black">Редактирование</h3>
+          <div class="mb-3">
+            <div class="col-sm-6">
+
+              <label for="id" class="col-sm-3 col-form-label">ID</label>
+              <input type="text" readonly name="inputid" class="form-control" id="id" th:field="*{id}"/>
+              <div class="alert alert-warning" th:if="${#fields.hasErrors('id')}"
+                   th:errors="*{id}"></div>
+
+              <label for="faculty" class="col-sm-3 col-form-label"></label>
+              <div class="col-sm-7">
+                <select style="width: 200%" th:field="*{faculty_id}" name="faculty" id="faculty"
+                        class="form-control">
+                  <option th:value="-1">Выберите факультет</option>
+                  <option th:each="var : ${faculties}" th:value="${var.getId()}"
+                          th:text="${var.getName()}"></option>
+                </select>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('faculty_id')}"
+                     th:errors="*{faculty_id}"></div>
+              </div>
+
+              <label for="name" class="col-sm-3 col-form-label" style="color: black">Название</label>
+              <input type="text" name="inputname" class="form-control" id="name" th:field="*{name}"/>
+              <div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+              <label for="abbr" class="col-sm-3 col-form-label" style="color: black">Аббревиатура</label>
+              <input type="text" name="inputabbr" class="form-control" id="abbr" th:field="*{abbr}"/>
+              <div class="alert alert-warning" th:if="${#fields.hasErrors('abbr')}" th:errors="*{abbr}"></div>
+
+              <label for="chief" class="col-sm-3 col-form-label" style="color: black">Зав.Кафедры</label>
+              <input type="text" name="inputchief" class="form-control" id="chief" th:field="*{chief}"/>
+              <div class="alert alert-warning" th:if="${#fields.hasErrors('chief')}" th:errors="*{chief}"></div>
+
+              <label for="phone" class="col-sm-3 col-form-label" style="color: black">Номер</label>
+              <input type="text" name="inputphone" class="form-control" id="phone" th:field="*{phone}"/>
+              <div class="alert alert-warning" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+            </div>
+          </div>
+          <p>
+            <br>
+            <button type="submit" class="btn btn-primary">Редактировать</button>
+            <a href="/chair"><button type="button" class="btn btn-primary">Отмена</button></a>
+            <br>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
